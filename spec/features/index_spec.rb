@@ -7,7 +7,7 @@ RSpec.describe 'the welcome index page' do
     within('.navbar') do
       within('#bs-example-navbar-collapse-1') do
         within('.nav') do
-          select 'Fire Nation', from: 'select-field'
+          select 'Fire Nation', from: 'nation'
         end
       end
     end
