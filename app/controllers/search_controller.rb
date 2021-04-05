@@ -11,12 +11,10 @@ class SearchController < ApplicationController
       # req.params['perPage'] = 100
     # end
 
-    response = Faraday.get('https://last-airbender-api.herokuapp.com/api/v1/characters?affiliation=fire+nation&perPage=100')
+    # response = Faraday.get('https://last-airbender-api.herokuapp.com/api/v1/characters?affiliation=fire+nation&perPage=100')
 
-    @members = JSON.parse(response.body, symbolize_names: true)
-  end
+    # @members = JSON.parse(response.body, symbolize_names: true)
 
-  def cleaner(string)
-    string.gsub(/_/, '+')
+    @members = SearchFacade.members(params[:nation])
   end
 end
