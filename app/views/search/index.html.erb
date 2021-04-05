@@ -4,8 +4,21 @@
 <section class='info'>
   <ul>
     <% @members.first(25).each do |member| %>
-      <li>
-
+      <li id="<%= member[:_id] %>">
+        <h4>Name: <%= member[:name] %></h4>
+        <% if member[:photoUrl] %>
+          <img src="<%= member[:photoUrl] %>" alt="image">
+        <% end %>
+        <h4>Allies</h4>
+        <% if member[:allies].length > 0 %>
+          <ul>
+          <% member[:allies].each do |ally|%>
+            <li><%= ally %></li>
+          <% end %>
+          </ul>
+        <% else %>
+          <p>None</p>
+        <% end %>
       </li>
     <% end %>
   </ul>
