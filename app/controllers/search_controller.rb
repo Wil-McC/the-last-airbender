@@ -11,8 +11,6 @@ class SearchController < ApplicationController
       # req.params['perPage'] = 100
     # end
 
-    # response = Faraday.get('https://last-airbender-api.herokuapp.com/api/v1/characters?affiliation=fire+nation&perPage=100')
-
     # @members = JSON.parse(response.body, symbolize_names: true)
 
     @members = SearchFacade.members(params[:nation])
